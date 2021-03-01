@@ -15,7 +15,6 @@ jobs:
       - name: Get tag message
         run: |
           TAG_BODY=$(git tag --contains ${{ github.sha }} -n100)
-          TAG_BODY=$(awk '(NR>2)' $TAG_BODY)
           echo "::set-output name=TAG_BODY::$TAG_BODY"
         id: tag-body
       - name: Create Release
